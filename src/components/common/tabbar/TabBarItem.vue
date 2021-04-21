@@ -26,7 +26,8 @@ export default {
   },
   methods: {
     itemClick() {
-      this.$router.replace(this.link);
+     // this.$router.replace(this.link);
+     this.isActive=true
     },
   },
 };
