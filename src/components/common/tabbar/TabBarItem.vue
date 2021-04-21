@@ -1,26 +1,29 @@
 <template>
   <div id="tab-bar-item">
-   <div class="item-icon"><slot name="icon"></slot></div>
-   <div class="item-active-icon"><slot name="active-icon"></slot></div>
-   <div class="item-text"><slot name="text"></slot></div>
+    <div class="item-icon" v-if="!isActive"><slot name="icon"></slot></div>
+    <div class="item-active-icon" v-else><slot name="active-icon"></slot></div>
+    <div class="item-text"><slot name="text"></slot></div>
   </div>
 </template>
 
 <script>
 export default {
   name: "TaBarItem",
-  props:{
-    link :{
-      type:String,
-      required:true
-    }
+  props: {
+    link: {
+      type: String,
+      required: true,
+    },
   },
-  methods:{
-    itemClick(){
-      
-    }
-  }
-}
+  computed: {
+    isActive() {},
+  },
+  methods: {
+    itemClick() {
+      //this.$router.path
+    },
+  },
+};
 </script>
 
 <style>
@@ -40,5 +43,9 @@ export default {
   font-size: 12px;
   margin-top: 3px;
   color: #333;
+}
+
+.active {
+  color:red;
 }
 </style>
