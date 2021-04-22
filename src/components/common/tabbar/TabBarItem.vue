@@ -1,5 +1,5 @@
 <template>
-  <div id="tab-bar-item">
+  <div id="tab-bar-item" @click="itemClick">
     <div class="item-icon" v-if="!isActive"><slot name="icon"></slot></div>
     <div class="item-active-icon" v-else><slot name="active-icon"></slot></div>
     <div class="item-text" :style="activeColor"><slot name="text"></slot></div>
@@ -17,8 +17,7 @@ export default {
   },
   computed: {
     isActive() {
-      return false
-      //return this.$route.indexOf(this.link) != -1;
+      return this.$route.path.indexOf(this.link) != -1;
     },
     activeColor() {
       return this.isActive ? { 'color': 'red' } : {};
@@ -26,8 +25,7 @@ export default {
   },
   methods: {
     itemClick() {
-     // this.$router.replace(this.link);
-     this.isActive=true
+      this.$router.replace(this.link);
     },
   },
 };
