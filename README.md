@@ -1,4 +1,4 @@
-# mymall
+# HemMall
 
 ## Project setup
 ```
